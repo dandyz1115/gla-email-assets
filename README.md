@@ -37,8 +37,11 @@
 
 | 场景 | URL |
 |---|---|
-| 不绑域名 | `https://<USER>.github.io/gla-email-assets/gla-16th-conference-banner.jpg` |
-| 绑定自有域名（推荐） | `https://img.glafamily.com/gla-16th-conference-banner.jpg` |
+| **当前已部署（2026-11-03）** | `https://dandyz1115.github.io/gla-email-assets/gla-16th-conference-banner.jpg` |
+| 绑定自有域名后 | `https://img.glafamily.com/gla-16th-conference-banner.jpg` |
+
+> 仓库：`https://github.com/dandyz1115/gla-email-assets`（PUBLIC，main / root，Pages 已开启，强制 HTTPS）。
+> 两版图片与落地页均已 curl 验证返回 `200 / image/jpeg` 或 `text/html`。
 
 邮件 HTML 片段：
 
