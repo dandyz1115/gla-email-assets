@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GLA 16th 大会横幅 · 邮件图片直链</title>
+<style>
+  :root{--primary:#004EA2;--cyan:#159BD3;--navy:#0A2342;--ink:#26384A;
+    --muted:#64778B;--line:#D7E4EF;--mist:#EEF4F9;--paper:#FFFFFF}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--mist);color:var(--ink);
+    font-family:'HarmonyOS Sans SC','PingFang SC','Microsoft YaHei',Arial,sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:40px 24px 72px}
+  header{padding-bottom:24px;border-bottom:2px solid var(--primary)}
+  h1{margin:8px 0 0;font-size:26px;font-weight:700;color:var(--navy);line-height:1.35}
+  .sub{margin:8px 0 0;color:var(--muted);font-size:14px}
+  .tag{display:inline-block;padding:5px 12px;border-radius:999px;background:rgba(0,78,162,.08);
+    color:var(--primary);font-size:12px;font-weight:700;letter-spacing:.04em}
+  .preview{margin-top:28px;background:var(--paper);border:1px solid var(--line);
+    border-radius:8px;padding:16px;box-shadow:0 8px 24px rgba(10,35,66,.06)}
+  .preview img{display:block;width:100%;height:auto;border-radius:4px}
+  .caption{margin-top:12px;font-size:12px;color:var(--muted);text-align:center}
+  h2{margin:36px 0 6px;font-size:18px;color:var(--navy);font-weight:700}
+  .hint{margin:0 0 16px;font-size:13px;color:var(--muted)}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:8px;
+    padding:20px;margin-bottom:16px}
+  .card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .card-title{font-weight:700;color:var(--navy);font-size:15px}
+  .badge{font-size:11px;color:var(--primary);background:rgba(0,78,162,.08);
+    padding:3px 9px;border-radius:999px;font-weight:700}
+  .row{margin-top:14px}
+  .label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px;font-weight:600}
+  .field{display:flex;gap:8px;align-items:stretch}
+  input,textarea{width:100%;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:12px;line-height:1.6;color:var(--navy);background:#F7FAFD;
+    border:1px solid var(--line);border-radius:5px;padding:9px 11px;resize:vertical}
+  textarea{min-height:78px;white-space:pre;overflow-wrap:normal;overflow-x:auto}
+  button{flex:0 0 auto;padding:0 16px;border:0;border-radius:5px;background:var(--primary);
+    color:#fff;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit}
+  button:hover{background:var(--cyan)} button.done{background:#1E8E5A}
+  .note{margin-top:28px;padding:18px 20px;border-left:4px solid var(--primary);
+    background:#F7FAFD;border-radius:0 6px 6px 0;font-size:13px;color:#52677C}
+  .note strong{color:var(--navy)}
+  .note ul{margin:10px 0 0;padding-left:20px} .note li{margin:5px 0}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    background:rgba(0,78,162,.07);padding:1px 5px;border-radius:3px;font-size:12px;color:var(--primary)}
+  footer{margin-top:36px;text-align:center;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="tag">GITHUB PAGES IMAGE HOST</span>
+    <h1>第十六届 GLA 全球物流大会 · 邮件横幅</h1>
+    <p class="sub">6–9 MAY 2027 · SHENZHEN · CHINA ｜ 供 EDM / 邮件签名引用的公开图片直链</p>
+  </header>
+
+  <div class="preview">
+    <img src="gla-16th-conference-banner.jpg" alt="The 16th GLA Global Logistics Conference, 6-9 May 2027, Shenzhen China" />
+    <div class="caption">2400 × 800 px · JPEG · 右下角含 REGISTER 二维码</div>
+  </div>
+
+  <h2>可用图片直链</h2>
+  <p class="hint">地址由当前页面自动生成，绑定自定义域名后会自动跟着变，无需手改。</p>
+
+  <div class="card">
+    <div class="card-head">
+      <span class="card-title">高清版（推荐）</span>
+      <span class="badge">2400 × 800 · 461 KB · 二维码清晰</span>
+    </div>
+    <div class="row">
+      <span class="label">图片 URL</span>
+      <div class="field"><input id="url-hi" readonly /><button data-copy="url-hi">复制</button></div>
+    </div>
+    <div class="row">
+      <span class="label">邮件 HTML 片段（宽度自适应 600px 邮件容器）</span>
+      <div class="field"><textarea id="html-hi" readonly></textarea><button data-copy="html-hi">复制</button></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <span class="card-title">轻量版</span>
+      <span class="badge">1600 × 533 · 202 KB · 加载更快</span>
+    </div>
+    <div class="row">
+      <span class="label">图片 URL</span>
+      <div class="field"><input id="url-sm" readonly /><button data-copy="url-sm">复制</button></div>
+    </div>
+    <div class="row">
+      <span class="label">邮件 HTML 片段</span>
+      <div class="field"><textarea id="html-sm" readonly></textarea><button data-copy="html-sm">复制</button></div>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>GitHub Pages 使用须知</strong>
+    <ul>
+      <li>邮件正文请切到「HTML 源码 / 编辑源代码」模式粘贴片段；Outlook、企业微信邮箱、Foxmail 均支持。</li>
+      <li>请使用 <b>GitHub Pages 地址</b>（本页域名），<b>不要用 <code>raw.githubusercontent.com</code> 直链</b>：后者缓存仅 5 分钟、有速率限制，且带 <code>default-src 'none'</code> 的 CSP，不是为生产图片托管设计的。</li>
+      <li>仓库需为<b>公开</b>（GitHub 免费版 Pages 限制）。本页与两张横幅是对外宣传物料，但请勿把内部素材一并放进公开仓库。</li>
+      <li>建议绑定自定义域名（如 <code>img.glafamily.com</code>）：把仓库根目录的 <code>CNAME.example</code> 改名为 <code>CNAME</code> 并填入域名，同时在 Pages 设置里勾选强制 HTTPS。自有域名在邮件网关里的信誉明显更好。</li>
+      <li>GitHub Pages 的服务器在境外，<b>国内收件人加载可能偏慢</b>；面向 3000+ 国际参会者的大规模正式群发，建议改用国内对象存储 + CDN 或官网目录。</li>
+      <li>图片 URL 一旦写进已发出的邮件，就<b>不要改文件名、不要删仓库、不要下线 Pages</b>，否则历史邮件会变成裂图。</li>
+      <li>二维码请用高清版；过度压缩会导致扫码失败。</li>
+    </ul>
+  </div>
+
+  <footer>GLA Global Logistics Alliance · Member Communications · www.glafamily.com</footer>
+</div>
+
+<script>
+(function () {
+  var base = new URL('.', window.location.href).href;
+  var hi = base + 'gla-16th-conference-banner.jpg';
+  var sm = base + 'gla-16th-conference-banner-1600.jpg';
+  var alt = 'The 16th GLA Global Logistics Conference | 6-9 May 2027 | Shenzhen, China';
+  var img = function (url) {
+    return '<img src="' + url + '" width="600" height="200" alt="' + alt + '"\n' +
+           '     style="display:block;width:100%;max-width:600px;height:auto;border:0;" />';
+  };
+  document.getElementById('url-hi').value = hi;
+  document.getElementById('url-sm').value = sm;
+  document.getElementById('html-hi').value = img(hi);
+  document.getElementById('html-sm').value = img(sm);
+
+  document.querySelectorAll('button[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var el = document.getElementById(btn.getAttribute('data-copy'));
+      var done = function () {
+        var old = btn.textContent;
+        btn.textContent = '已复制'; btn.classList.add('done');
+        setTimeout(function () { btn.textContent = old; btn.classList.remove('done'); }, 1600);
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(el.value).then(done, function () { fallback(el, done); });
+      } else { fallback(el, done); }
+    });
+  });
+  function fallback(el, done) {
+    el.focus(); el.select();
+    try { document.execCommand('copy'); done(); } catch (e) { /* ignore */ }
+  }
+})();
+</script>
+</body>
+</html>
