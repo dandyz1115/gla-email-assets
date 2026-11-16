@@ -5,51 +5,129 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>丹迪图床</title>
 <style>
-  :root{color-scheme:light;--paper:#f8f6ef;--ink:#172e29;--muted:#53635b;--rule:#d8ddd1;--accent:#26634e;--surface:#fffefa}
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 "DM Sans","PingFang SC","Microsoft YaHei",sans-serif}
-  .shell{width:min(1144px,calc(100% - 64px));margin-inline:auto}
-  header{padding:54px 0 34px;border-bottom:1px solid var(--rule);background:#e9eee4}
-  h1,h2,h3,p{margin:0}
-  h1{font-family:"Songti SC","Noto Serif CJK SC",serif;font-size:clamp(44px,8vw,84px);line-height:1.1;letter-spacing:-.055em}
-  header p{margin-top:14px;color:var(--muted)}
-  main{padding:34px 0 60px}
-  section+section{margin-top:42px}
-  h2{font-size:21px;margin-bottom:14px}
-  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-  article{min-width:0;overflow:hidden;background:var(--surface);border:1px solid var(--rule);border-radius:12px}
-  .preview{display:grid;place-items:center;background:#e7ebe2;border-bottom:1px solid var(--rule)}
-  .preview img{display:block;width:100%;height:auto}
-  .secondary .preview{height:192px;padding:16px}
-  .secondary .preview img{width:auto;height:auto;max-width:100%;max-height:159px;object-fit:contain}
-  .secondary .preview .logo{width:min(70%,290px)}
-  .body{padding:18px 20px 20px}
-  h3{font-size:clamp(17px,2.2vw,23px);line-height:1.35;overflow-wrap:anywhere}
-  .variant{margin-top:16px}
-  .variant+.variant{padding-top:14px;border-top:1px solid var(--rule)}
-  .variant p{font-size:13px;color:var(--muted);margin-bottom:8px}
-  .actions{display:flex;gap:8px;flex-wrap:wrap}
-  a,button{font:inherit}
-  .actions>*{display:inline-flex;align-items:center;justify-content:center;min-height:40px;border:1px solid var(--rule);border-radius:6px;padding:6px 12px;background:transparent;color:var(--ink);text-decoration:none;font-size:13px;cursor:pointer}
-  .actions button[data-copy="url"]{background:var(--accent);border-color:var(--accent);color:white}
-  .actions>*:hover{box-shadow:inset 0 0 0 99px #12251b12}
-  :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-  #copy-status{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);width:max-content;max-width:calc(100% - 32px);padding:8px 16px;border-radius:6px;background:var(--ink);color:white}
-  #copy-status:empty{clip-path:inset(50%);padding:0}
-  @media(max-width:700px){
-    .shell{width:calc(100% - 32px)}
-    header{padding:36px 0 24px}
-    main{padding-top:24px}
-    .grid{grid-template-columns:1fr;gap:14px}
-    .body{padding:14px}
+  :root {
+    color-scheme: dark;
+    --bg: #101411;
+    --card: #191f1a;
+    --line: #343e35;
+    --text: #f0f4ed;
+    --muted: #b4c0b5;
+    --accent: #dcfb91;
+    --gutter: clamp(16px, 5vw, 68px);
+    --target: 40px;
+  }
+  @media (pointer: coarse) { :root { --target: 44px; } }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 15px/1.5 "Geist", "PingFang SC", "Microsoft YaHei", sans-serif;
+    overflow-wrap: anywhere;
+  }
+  .shell { width: min(1160px, calc(100% - 2 * var(--gutter))); margin-inline: auto; }
+  header {
+    padding-block: clamp(36px, 7vw, 90px) clamp(26px, 4vw, 52px);
+    border-block-end: 1px solid var(--line);
+    background:
+      radial-gradient(ellipse at 92% 10%, #38522d 0%, transparent 58%),
+      #141b15;
+  }
+  .masthead { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 18px 32px; }
+  h1, h2, h3, p { margin: 0; }
+  h1, h2, h3 { text-wrap: balance; }
+  h1 { font-size: clamp(49px, 9vw, 108px); font-weight: 800; line-height: 1.03; letter-spacing: -.075em; }
+  header p { margin-block-start: 14px; color: var(--muted); }
+  nav { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+  nav a { display: inline-flex; align-items: center; min-block-size: var(--target); color: var(--accent); text-underline-offset: .3em; }
+  main { padding-block: clamp(25px, 4vw, 48px) 70px; }
+  section + section { margin-block-start: clamp(35px, 5vw, 62px); }
+  h2 { font-size: clamp(18px, 2.4vw, 24px); margin-block-end: 18px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 365px), 1fr));
+    gap: clamp(12px, 2vw, 22px);
+  }
+  article {
+    min-inline-size: 0;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+  }
+  .preview {
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background: #242d25;
+    border-radius: 17px 17px 0 0;
+  }
+  .preview img { display: block; width: 100%; height: auto; }
+  .secondary { container: assets / inline-size; }
+  .secondary .preview { min-block-size: 174px; padding: 18px; background: #e7ece2; }
+  .secondary .preview img { width: auto; max-inline-size: 100%; max-block-size: 150px; object-fit: contain; }
+  .secondary .preview .logo { width: min(100%, 230px); }
+  @container assets (min-width: 850px) {
+    .secondary article { display: grid; grid-template-columns: minmax(128px, 33%) minmax(0, 1fr); }
+    .secondary .preview { border-radius: 17px 0 0 17px; }
+  }
+  .body { padding: clamp(15px, 2vw, 24px); }
+  h3 { font-size: clamp(18px, 2.2vw, 25px); line-height: 1.3; }
+  .variant { margin-block-start: 14px; }
+  .variant + .variant { padding-block-start: 14px; border-block-start: 1px solid var(--line); }
+  .variant p { margin-block-end: 8px; color: var(--muted); font-size: 13px; text-wrap: pretty; }
+  .actions { display: flex; gap: 7px; flex-wrap: wrap; }
+  .actions > * {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-block-size: var(--target);
+    min-inline-size: var(--target);
+    padding: 6px 11px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #232c24;
+    color: var(--text);
+    font: inherit;
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .actions button[data-copy="url"] { background: var(--accent); border-color: var(--accent); color: #172016; font-weight: 700; }
+  .actions > :hover { filter: brightness(1.12); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  #copy-status {
+    position: fixed;
+    inset-block-end: 20px;
+    inset-inline-start: 50%;
+    translate: -50% 0;
+    width: max-content;
+    max-width: calc(100% - 32px);
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: var(--accent);
+    color: #172016;
+    font-weight: 700;
+  }
+  #copy-status:empty { clip-path: inset(50%); padding: 0; }
+  @media (prefers-reduced-motion: no-preference) {
+    .preview img { transition: transform 200ms ease; }
+    .preview:hover img { transform: scale(1.015); }
+    #copy-status:not(:empty) { animation: toast-in 160ms ease-out; }
+    @keyframes toast-in { from { opacity: 0; transform: translateY(5px); } }
   }
 </style>
 </head>
 <body>
 <header>
-  <div class="shell">
-    <h1>丹迪图床</h1>
-    <p>预览图片，复制直链或邮件 HTML。</p>
+  <div class="shell masthead">
+    <div>
+      <h1>丹迪图床</h1>
+      <p>预览图片，复制直链或邮件 HTML。</p>
+    </div>
+    <nav aria-label="素材分类">
+      <a href="#banners">大会横幅</a>
+      <a href="#other-assets">其他素材</a>
+    </nav>
   </div>
 </header>
 <main class="shell">
@@ -65,17 +143,17 @@
           <div class="variant" data-width="600" data-height="200" data-alt="The 16th GLA Global Logistics Conference — Mencia WhatsApp">
             <p>高清版 · 2400 × 800</p>
             <div class="actions">
-              <a href="gla-16th-conference-banner.jpg" target="_blank" rel="noopener">打开图片</a>
               <button type="button" data-copy="url">复制直链</button>
               <button type="button" data-copy="html">复制 HTML</button>
+              <a href="gla-16th-conference-banner.jpg" target="_blank" rel="noopener">打开图片</a>
             </div>
           </div>
           <div class="variant" data-width="600" data-height="200" data-alt="The 16th GLA Global Logistics Conference — Mencia WhatsApp">
             <p>轻量版 · 1600 × 533</p>
             <div class="actions">
-              <a href="gla-16th-conference-banner-1600.jpg" target="_blank" rel="noopener">打开图片</a>
               <button type="button" data-copy="url">复制直链</button>
               <button type="button" data-copy="html">复制 HTML</button>
+              <a href="gla-16th-conference-banner-1600.jpg" target="_blank" rel="noopener">打开图片</a>
             </div>
           </div>
         </div>
@@ -89,9 +167,9 @@
           <div class="variant" data-width="600" data-height="200" data-alt="The 16th GLA Global Logistics Conference — Official project team QR code">
             <p>1920 × 640 · 发邮件前请先测试扫码</p>
             <div class="actions">
-              <a href="gla-16th-conference-banner-v2.jpg" target="_blank" rel="noopener">打开图片</a>
               <button type="button" data-copy="url">复制直链</button>
               <button type="button" data-copy="html">复制 HTML</button>
+              <a href="gla-16th-conference-banner-v2.jpg" target="_blank" rel="noopener">打开图片</a>
             </div>
           </div>
         </div>
@@ -110,17 +188,17 @@
           <div class="variant" data-width="600" data-height="900" data-alt="GLA Irene">
             <p>高清版 · 4664 × 6996</p>
             <div class="actions">
-              <a href="gla-16th-conference-irene.jpg" target="_blank" rel="noopener">打开图片</a>
               <button type="button" data-copy="url">复制直链</button>
               <button type="button" data-copy="html">复制 HTML</button>
+              <a href="gla-16th-conference-irene.jpg" target="_blank" rel="noopener">打开图片</a>
             </div>
           </div>
           <div class="variant" data-width="600" data-height="900" data-alt="GLA Irene">
             <p>轻量版 · 1600 × 2400</p>
             <div class="actions">
-              <a href="gla-16th-conference-irene-1600.jpg" target="_blank" rel="noopener">打开图片</a>
               <button type="button" data-copy="url">复制直链</button>
               <button type="button" data-copy="html">复制 HTML</button>
+              <a href="gla-16th-conference-irene-1600.jpg" target="_blank" rel="noopener">打开图片</a>
             </div>
           </div>
         </div>
@@ -134,9 +212,9 @@
           <div class="variant" data-width="240" data-height="84" data-alt="GLA Global Logistics Alliance">
             <p>英文版 · 透明底 PNG</p>
             <div class="actions">
-              <a href="gla-logo.png" target="_blank" rel="noopener">打开图片</a>
               <button type="button" data-copy="url">复制直链</button>
               <button type="button" data-copy="html">复制 HTML</button>
+              <a href="gla-logo.png" target="_blank" rel="noopener">打开图片</a>
             </div>
           </div>
         </div>
