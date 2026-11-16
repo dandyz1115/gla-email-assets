@@ -8,6 +8,7 @@
 |---|---|
 | `gla-16th-conference-banner.jpg` | 高清版 2400×800，471 KB，推荐（二维码清晰） |
 | `gla-16th-conference-banner-1600.jpg` | 轻量版 1600×533，207 KB |
+| `gla-16th-conference-banner-v2.jpg` | 第二版 1920×640，175 KB，点阵二维码（2026-11-16 新增） |
 | `index.html` | 落地页，自动生成图片直链与可复制的邮件 HTML 片段 |
 | `.nojekyll` | 跳过 Jekyll 构建，避免静态文件被过滤 |
 
@@ -15,14 +16,37 @@
 
 | 用途 | URL |
 |---|---|
-| 高清（正式地址，推荐） | `https://dandyz1115.github.io/gla-email-assets/gla-16th-conference-banner.jpg` |
-| 轻量 | `https://dandyz1115.github.io/gla-email-assets/gla-16th-conference-banner-1600.jpg` |
+| 版本一 · 高清（正式地址，推荐） | `https://dandyz1115.github.io/gla-email-assets/gla-16th-conference-banner.jpg` |
+| 版本一 · 轻量 | `https://dandyz1115.github.io/gla-email-assets/gla-16th-conference-banner-1600.jpg` |
+| 版本二 · 点阵二维码 | `https://dandyz1115.github.io/gla-email-assets/gla-16th-conference-banner-v2.jpg` |
 | 落地页（可一键复制直链与代码片段） | `https://dandyz1115.github.io/gla-email-assets/` |
 
 > 仓库：`https://github.com/dandyz1115/gla-email-assets`（PUBLIC，main / root，Pages 已开启，强制 HTTPS）。
-> 两版图片与落地页均已 curl 验证返回 `200 / image/jpeg` 或 `text/html`。
+> 各版图片与落地页均已 curl 验证返回 `200 / image/jpeg` 或 `text/html`。
 
-邮件 HTML 片段：
+## 两版横幅的差异（重要）
+
+两版文字、数据栏、深圳天际线完全一致（同为 3:1 比例），**差别在右侧二维码与分辨率**：
+
+| | 版本一 | 版本二 |
+|---|---|---|
+| 尺寸 | 2400×800 | 1920×640 |
+| 二维码 | 白底黑块，中心带 WhatsApp 图标，**静区完整** | 白色点阵直接叠在彩色背景上，**无静区留白** |
+| 扫码可靠性 | 高，缩放压缩后仍可扫 | 偏低，缩放/二次压缩后容易扫不出 |
+| 建议 | **正式群发用这版** | 先发测试邮件确认能扫出，且不再压缩 |
+
+两版二维码并非同一个（图案不同），可能指向不同入口，替换前请确认目标链接。版本二不提供轻量版，避免进一步压缩点阵二维码。
+
+版本二邮件 HTML 片段：
+
+```html
+<img src="https://dandyz1115.github.io/gla-email-assets/gla-16th-conference-banner-v2.jpg"
+     width="600" height="200"
+     alt="The 16th GLA Global Logistics Conference | 6-9 May 2027 | Shenzhen, China"
+     style="display:block;width:100%;max-width:600px;height:auto;border:0;" />
+```
+
+版本一邮件 HTML 片段：
 
 ```html
 <img src="https://dandyz1115.github.io/gla-email-assets/gla-16th-conference-banner.jpg"
