@@ -55,6 +55,23 @@
      style="display:block;width:100%;max-width:600px;height:auto;border:0;" />
 ```
 
+## GLA Irene
+
+GLA Irene 公开邮件图片，2026-11-16 添加。高清版保留源图，轻量版由技能 prepare 脚本生成。
+
+| 文件 | 尺寸 | HTTPS 直链 |
+|---|---|---|
+| `gla-16th-conference-irene.jpg` | 4664×6996 | https://dandyz1115.github.io/gla-email-assets/gla-16th-conference-irene.jpg |
+| `gla-16th-conference-irene-1600.jpg` | 1600×2400 | https://dandyz1115.github.io/gla-email-assets/gla-16th-conference-irene-1600.jpg |
+
+落地页 https://dandyz1115.github.io/gla-email-assets/#gla-irene
+
+```html
+<img src="https://dandyz1115.github.io/gla-email-assets/gla-16th-conference-irene.jpg"
+     width="600" height="900" alt="GLA Irene"
+     style="display:block;width:100%;max-width:600px;height:auto;border:0;" />
+```
+
 ## 部署步骤（复现记录）
 
 1. 在 GitHub 新建**公开**仓库 `gla-email-assets`（免费版 Pages 不支持私有仓库）。

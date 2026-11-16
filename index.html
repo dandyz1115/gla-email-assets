@@ -118,6 +118,32 @@
     </div>
   </div>
 
+  <section id="gla-irene">
+    <h2>GLA Irene</h2>
+    <div class="preview">
+      <img src="gla-16th-conference-irene-1600.jpg" alt="GLA Irene" width="1600" height="2400" loading="lazy" />
+      <div class="caption">GLA Irene · 高清 4664 × 6996 px · 轻量 1600 × 2400 px · JPEG</div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-title">GLA Irene · 高清版</span><span class="badge">4664 × 6996</span></div>
+      <div class="row"><label class="label" for="url-irene-hi">图片 URL</label>
+        <div class="field"><input id="url-irene-hi" readonly /><button data-copy="url-irene-hi">复制</button></div>
+      </div>
+      <div class="row"><label class="label" for="html-irene-hi">邮件 HTML 片段</label>
+        <div class="field"><textarea id="html-irene-hi" readonly></textarea><button data-copy="html-irene-hi">复制</button></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-title">GLA Irene · 轻量版</span><span class="badge">1600 × 2400</span></div>
+      <div class="row"><label class="label" for="url-irene-sm">图片 URL</label>
+        <div class="field"><input id="url-irene-sm" readonly /><button data-copy="url-irene-sm">复制</button></div>
+      </div>
+      <div class="row"><label class="label" for="html-irene-sm">邮件 HTML 片段</label>
+        <div class="field"><textarea id="html-irene-sm" readonly></textarea><button data-copy="html-irene-sm">复制</button></div>
+      </div>
+    </div>
+  </section>
+
   <div class="note">
     <strong>GitHub Pages 使用须知</strong>
     <ul>
@@ -152,6 +178,14 @@
   document.getElementById('html-hi').value = img(hi);
   document.getElementById('html-sm').value = img(sm);
   document.getElementById('html-v2').value = img(v2);
+
+  ['irene-hi', 'irene-sm'].forEach(function (key) {
+    var filename = key === 'irene-hi' ? 'gla-16th-conference-irene.jpg' : 'gla-16th-conference-irene-1600.jpg';
+    var url = base + filename;
+    document.getElementById('url-' + key).value = url;
+    document.getElementById('html-' + key).value = '<img src="' + url + '" width="600" height="900" alt="GLA Irene"\n' +
+      '     style="display:block;width:100%;max-width:600px;height:auto;border:0;" />';
+  });
 
   document.querySelectorAll('button[data-copy]').forEach(function (btn) {
     btn.addEventListener('click', function () {
