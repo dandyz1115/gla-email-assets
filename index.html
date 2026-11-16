@@ -1,433 +1,174 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>GLA 16th 大会 · 邮件图片直链</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>丹迪图床</title>
 <style>
-  :root{
-    --primary:#004EA2;
-    --cyan:#159BD3;
-    --navy:#0A2342;
-    --ink:#26384A;
-    --muted:#64778B;
-    --line:#D7E4EF;
-    --mist:#EEF4F9;
-    --paper:#FFFFFF;
-    --warn:#9A6B12;
-    --warn-bg:#F8F1E3;
-  }
+  :root{color-scheme:light;--paper:#f8f6ef;--ink:#172e29;--muted:#53635b;--rule:#d8ddd1;--accent:#26634e;--surface:#fffefa}
   *{box-sizing:border-box}
-  html,body{margin:0}
-  body{
-    background:var(--mist);
-    color:var(--ink);
-    font-family:"HarmonyOS Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  .hero{
-    background:var(--navy);
-    color:#fff;
-    border-bottom:4px solid var(--cyan);
-  }
-  .hero-inner{
-    max-width:1200px;
-    margin:0 auto;
-    padding:40px 24px 36px;
-  }
-  .tag{
-    display:inline-block;
-    padding:5px 12px;
-    border-radius:999px;
-    background:rgba(21,155,211,.16);
-    color:#9FDBF3;
-    font-size:11px;
-    font-weight:700;
-    letter-spacing:.08em;
-  }
-  .hero h1{
-    margin:12px 0 0;
-    font-size:28px;
-    font-weight:700;
-    line-height:1.3;
-    letter-spacing:.01em;
-  }
-  .hero .sub{
-    margin:8px 0 0;
-    color:rgba(255,255,255,.72);
-    font-size:14px;
-  }
-  .wrap{
-    max-width:1200px;
-    margin:0 auto;
-    padding:32px 24px 72px;
-  }
-  .grid-head{
-    display:flex;
-    align-items:flex-end;
-    justify-content:space-between;
-    gap:16px;
-    flex-wrap:wrap;
-    margin-bottom:20px;
-  }
-  .grid-head h2{
-    margin:0;
-    font-size:18px;
-    color:var(--navy);
-    font-weight:700;
-  }
-  .grid-head p{
-    margin:0;
-    font-size:13px;
-    color:var(--muted);
-  }
-  .grid{
-    display:grid;
-    grid-template-columns:repeat(4, minmax(0, 1fr));
-    gap:18px;
-    align-items:start;
-  }
-  .card{
-    display:flex;
-    flex-direction:column;
-    background:var(--paper);
-    border:1px solid var(--line);
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 8px 24px rgba(10,35,66,.06);
-    min-width:0;
-  }
-  .card.recommended{box-shadow:0 8px 24px rgba(0,78,162,.12);border-color:#B9D2EA}
-  .thumb{
-    aspect-ratio:3/1;
-    background:var(--navy);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-  }
-  .thumb img{
-    display:block;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-  }
-  .card.portrait .thumb{aspect-ratio:2/3}
-  .body{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    padding:16px 16px 18px;
-    flex:1;
-  }
-  .kicker{
-    font-size:11px;
-    font-weight:700;
-    letter-spacing:.06em;
-    color:var(--primary);
-    text-transform:uppercase;
-  }
-  .title-row{
-    display:flex;
-    align-items:flex-start;
-    justify-content:space-between;
-    gap:8px;
-  }
-  h3{
-    margin:2px 0 0;
-    font-size:16px;
-    font-weight:700;
-    color:var(--navy);
-    line-height:1.35;
-  }
-  .badge{
-    flex:0 0 auto;
-    font-size:11px;
-    font-weight:700;
-    color:var(--primary);
-    background:rgba(0,78,162,.08);
-    padding:3px 8px;
-    border-radius:999px;
-    white-space:nowrap;
-  }
-  .badge.rec{background:var(--primary);color:#fff}
-  .badge.warn{background:var(--warn-bg);color:var(--warn)}
-  .meta,.desc{
-    margin:0;
-    font-size:12px;
-    color:var(--muted);
-  }
-  .desc{min-height:3.2em}
-  .url{
-    width:100%;
-    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-    font-size:11px;
-    line-height:1.5;
-    color:var(--navy);
-    background:#F7FAFD;
-    border:1px solid var(--line);
-    border-radius:5px;
-    padding:8px 10px;
-    text-overflow:ellipsis;
-  }
-  .group{display:flex;flex-direction:column;gap:8px}
-  .group-label{
-    font-size:11px;
-    font-weight:700;
-    color:var(--muted);
-    letter-spacing:.04em;
-  }
-  .actions{display:flex;gap:8px;margin-top:auto}
-  .actions button{
-    flex:1;
-    padding:8px 8px;
-    border:0;
-    border-radius:6px;
-    background:var(--primary);
-    color:#fff;
-    font-size:12px;
-    font-weight:700;
-    cursor:pointer;
-    font-family:inherit;
-  }
-  .actions button:hover{background:var(--cyan)}
-  .actions button.ghost{
-    background:#fff;
-    color:var(--primary);
-    border:1px solid #B9D2EA;
-  }
-  .actions button.ghost:hover{background:var(--mist)}
-  .actions button.done{background:#1E8E5A;color:#fff;border-color:#1E8E5A}
-  .visually-hidden{
-    position:absolute;
-    width:1px;height:1px;
-    padding:0;margin:-1px;
-    overflow:hidden;clip:rect(0,0,0,0);
-    white-space:nowrap;border:0;
-  }
-  .note{
-    margin-top:32px;
-    padding:18px 22px;
-    border-left:4px solid var(--primary);
-    background:#F7FAFD;
-    border-radius:0 8px 8px 0;
-    font-size:13px;
-    color:#52677C;
-  }
-  .note strong{color:var(--navy)}
-  .note ul{margin:10px 0 0;padding-left:20px}
-  .note li{margin:5px 0}
-  code{
-    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-    background:rgba(0,78,162,.07);
-    padding:1px 5px;
-    border-radius:3px;
-    font-size:12px;
-    color:var(--primary);
-  }
-  footer{
-    margin-top:36px;
-    text-align:center;
-    color:var(--muted);
-    font-size:12px;
-  }
-  footer a{color:var(--primary);text-decoration:none}
-  footer a:hover{text-decoration:underline}
-  @media (max-width:1080px){
-    .grid{grid-template-columns:repeat(2, minmax(0, 1fr))}
-  }
-  @media (max-width:640px){
-    .grid{grid-template-columns:1fr}
-    .hero h1{font-size:22px}
-    .card:not(.portrait) .thumb{aspect-ratio:3/1}
-    .card.portrait .thumb{aspect-ratio:2/3}
+  body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 "DM Sans","PingFang SC","Microsoft YaHei",sans-serif}
+  .shell{width:min(1144px,calc(100% - 64px));margin-inline:auto}
+  header{padding:54px 0 34px;border-bottom:1px solid var(--rule);background:#e9eee4}
+  h1,h2,h3,p{margin:0}
+  h1{font-family:"Songti SC","Noto Serif CJK SC",serif;font-size:clamp(44px,8vw,84px);line-height:1.1;letter-spacing:-.055em}
+  header p{margin-top:14px;color:var(--muted)}
+  main{padding:34px 0 60px}
+  section+section{margin-top:42px}
+  h2{font-size:21px;margin-bottom:14px}
+  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+  article{min-width:0;overflow:hidden;background:var(--surface);border:1px solid var(--rule);border-radius:12px}
+  .preview{display:grid;place-items:center;background:#e7ebe2;border-bottom:1px solid var(--rule)}
+  .preview img{display:block;width:100%;height:auto}
+  .secondary .preview{height:192px;padding:16px}
+  .secondary .preview img{width:auto;height:auto;max-width:100%;max-height:159px;object-fit:contain}
+  .secondary .preview .logo{width:min(70%,290px)}
+  .body{padding:18px 20px 20px}
+  h3{font-size:clamp(17px,2.2vw,23px);line-height:1.35;overflow-wrap:anywhere}
+  .variant{margin-top:16px}
+  .variant+.variant{padding-top:14px;border-top:1px solid var(--rule)}
+  .variant p{font-size:13px;color:var(--muted);margin-bottom:8px}
+  .actions{display:flex;gap:8px;flex-wrap:wrap}
+  a,button{font:inherit}
+  .actions>*{display:inline-flex;align-items:center;justify-content:center;min-height:40px;border:1px solid var(--rule);border-radius:6px;padding:6px 12px;background:transparent;color:var(--ink);text-decoration:none;font-size:13px;cursor:pointer}
+  .actions button[data-copy="url"]{background:var(--accent);border-color:var(--accent);color:white}
+  .actions>*:hover{box-shadow:inset 0 0 0 99px #12251b12}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  #copy-status{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);width:max-content;max-width:calc(100% - 32px);padding:8px 16px;border-radius:6px;background:var(--ink);color:white}
+  #copy-status:empty{clip-path:inset(50%);padding:0}
+  @media(max-width:700px){
+    .shell{width:calc(100% - 32px)}
+    header{padding:36px 0 24px}
+    main{padding-top:24px}
+    .grid{grid-template-columns:1fr;gap:14px}
+    .body{padding:14px}
   }
 </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="hero-inner">
-      <span class="tag">GITHUB PAGES · IMAGE HOST</span>
-      <h1>第十六届 GLA 全球物流大会</h1>
-      <p class="sub">邮件图片直链　·　6–9 MAY 2027　·　SHENZHEN · CHINA</p>
-    </div>
-  </header>
-
-  <main class="wrap">
-    <div class="grid-head">
-      <h2>图片资产</h2>
-      <p>地址由当前页面自动生成。点击即可复制直链或邮件 HTML 片段。</p>
-    </div>
-
-    <section class="grid" aria-label="邮件图片资产">
-      <article class="card recommended">
-        <div class="thumb">
-          <img src="gla-16th-conference-banner.jpg" alt="The 16th GLA Global Logistics Conference, 6-9 May 2027, Shenzhen China" />
-        </div>
+<header>
+  <div class="shell">
+    <h1>丹迪图床</h1>
+    <p>预览图片，复制直链或邮件 HTML。</p>
+  </div>
+</header>
+<main class="shell">
+  <section aria-labelledby="banners">
+    <h2 id="banners">第十六届 GLA 全球物流大会横幅</h2>
+    <div class="grid">
+      <article>
+        <a class="preview" href="gla-16th-conference-banner.jpg" target="_blank" rel="noopener">
+          <img src="gla-16th-conference-banner.jpg" width="2400" height="800" alt="带 Mencia WhatsApp 二维码的大会横幅">
+        </a>
         <div class="body">
-          <div class="kicker">Banner · 版本一</div>
-          <div class="title-row">
-            <h3>高清横幅</h3>
-            <span class="badge rec">推荐</span>
-          </div>
-          <p class="meta">2400 × 800　·　461 KB</p>
-          <p class="desc">白底黑块二维码，中心带 WhatsApp 图标，静区完整，正式群发建议用这版。</p>
-          <input class="url" id="url-hi" readonly aria-label="版本一高清直链" />
-          <div class="actions">
-            <button type="button" data-copy="url-hi">复制直链</button>
-            <button type="button" class="ghost" data-copy="html-hi">复制 HTML</button>
-          </div>
-          <textarea id="html-hi" class="visually-hidden" readonly></textarea>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="thumb">
-          <img src="gla-16th-conference-banner-1600.jpg" alt="The 16th GLA Global Logistics Conference, 6-9 May 2027, Shenzhen China, lightweight version" />
-        </div>
-        <div class="body">
-          <div class="kicker">Banner · 版本一</div>
-          <div class="title-row">
-            <h3>轻量横幅</h3>
-            <span class="badge">加载更快</span>
-          </div>
-          <p class="meta">1600 × 533　·　202 KB</p>
-          <p class="desc">与版本一画面相同，体积更小，适合更在意加载速度的邮件。</p>
-          <input class="url" id="url-sm" readonly aria-label="版本一轻量直链" />
-          <div class="actions">
-            <button type="button" data-copy="url-sm">复制直链</button>
-            <button type="button" class="ghost" data-copy="html-sm">复制 HTML</button>
-          </div>
-          <textarea id="html-sm" class="visually-hidden" readonly></textarea>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="thumb">
-          <img src="gla-16th-conference-banner-v2.jpg" alt="The 16th GLA Global Logistics Conference, 6-9 May 2027, Shenzhen China, version two" />
-        </div>
-        <div class="body">
-          <div class="kicker">Banner · 版本二</div>
-          <div class="title-row">
-            <h3>点阵二维码</h3>
-            <span class="badge warn">先测扫码</span>
-          </div>
-          <p class="meta">1920 × 640　·　175 KB</p>
-          <p class="desc">白色点阵二维码叠在背景上，无静区留白。请先发测试邮件确认能扫出，且不要再压缩。</p>
-          <input class="url" id="url-v2" readonly aria-label="版本二直链" />
-          <div class="actions">
-            <button type="button" data-copy="url-v2">复制直链</button>
-            <button type="button" class="ghost" data-copy="html-v2">复制 HTML</button>
-          </div>
-          <textarea id="html-v2" class="visually-hidden" readonly></textarea>
-        </div>
-      </article>
-
-      <article class="card portrait" id="gla-irene">
-        <div class="thumb">
-          <img src="gla-16th-conference-irene-1600.jpg" alt="GLA Irene" width="1600" height="2400" />
-        </div>
-        <div class="body">
-          <div class="kicker">Portrait</div>
-          <div class="title-row">
-            <h3>GLA Irene</h3>
-            <span class="badge">人像</span>
-          </div>
-          <p class="meta">高清 4664 × 6996 · 2.0 MB<br />轻量 1600 × 2400 · 543 KB</p>
-          <p class="desc">大会现场人像。高清保留源图；境内加载若偏慢，邮件里可改用轻量版。</p>
-          <div class="group">
-            <span class="group-label">高清</span>
-            <input class="url" id="url-irene-hi" readonly aria-label="GLA Irene 高清直链" />
+          <h3>Mencia 的 WhatsApp 二维码横幅</h3>
+          <div class="variant" data-width="600" data-height="200" data-alt="The 16th GLA Global Logistics Conference — Mencia WhatsApp">
+            <p>高清版 · 2400 × 800</p>
             <div class="actions">
-              <button type="button" data-copy="url-irene-hi">复制直链</button>
-              <button type="button" class="ghost" data-copy="html-irene-hi">复制 HTML</button>
+              <a href="gla-16th-conference-banner.jpg" target="_blank" rel="noopener">打开图片</a>
+              <button type="button" data-copy="url">复制直链</button>
+              <button type="button" data-copy="html">复制 HTML</button>
             </div>
-            <textarea id="html-irene-hi" class="visually-hidden" readonly></textarea>
           </div>
-          <div class="group">
-            <span class="group-label">轻量</span>
-            <input class="url" id="url-irene-sm" readonly aria-label="GLA Irene 轻量直链" />
+          <div class="variant" data-width="600" data-height="200" data-alt="The 16th GLA Global Logistics Conference — Mencia WhatsApp">
+            <p>轻量版 · 1600 × 533</p>
             <div class="actions">
-              <button type="button" data-copy="url-irene-sm">复制直链</button>
-              <button type="button" class="ghost" data-copy="html-irene-sm">复制 HTML</button>
+              <a href="gla-16th-conference-banner-1600.jpg" target="_blank" rel="noopener">打开图片</a>
+              <button type="button" data-copy="url">复制直链</button>
+              <button type="button" data-copy="html">复制 HTML</button>
             </div>
-            <textarea id="html-irene-sm" class="visually-hidden" readonly></textarea>
           </div>
         </div>
       </article>
-    </section>
-
-    <div class="note">
-      <strong>GitHub Pages 使用须知</strong>
-      <ul>
-        <li>邮件正文请切到「HTML 源码 / 编辑源代码」模式粘贴片段；Outlook、企业微信邮箱、Foxmail 均支持。</li>
-        <li>请使用 <b>GitHub Pages 地址</b>（本页域名），<b>不要用 <code>raw.githubusercontent.com</code> 直链</b>：后者缓存仅 5 分钟、有速率限制，且带 <code>default-src 'none'</code> 的 CSP，不是为生产图片托管设计的。</li>
-        <li>仓库需为<b>公开</b>（GitHub 免费版 Pages 限制）。本页与图片是对外宣传物料，但请勿把内部素材一并放进公开仓库。</li>
-        <li>本项目<b>不绑定自定义域名</b>，直接使用 GitHub 官方域名 <code>dandyz1115.github.io</code>；本页展示的地址即为最终正式地址。以后若需换成自有域名，只需在 Pages 设置里绑定并更新邮件模板中的 URL，图片文件无需改动。</li>
-        <li>两版横幅文字与数据完全相同，<b>差别在二维码</b>：版本一为白底黑块二维码（中心带 WhatsApp 图标）、静区完整；版本二为白色点阵二维码直接叠在彩色背景上、无静区留白。<b>正式群发建议用版本一</b>，版本二请先发测试邮件确认能扫出，且不要再做二次压缩。</li>
-        <li>GitHub Pages 的服务器在境外，<b>国内收件人加载可能偏慢</b>；面向 3000+ 国际参会者的大规模正式群发，建议改用国内对象存储 + CDN 或官网目录。</li>
-        <li>图片 URL 一旦写进已发出的邮件，就<b>不要改文件名、不要删仓库、不要下线 Pages</b>，否则历史邮件会变成裂图。</li>
-        <li>二维码请用原图；过度压缩或缩小会导致扫码失败。</li>
-      </ul>
+      <article>
+        <a class="preview" href="gla-16th-conference-banner-v2.jpg" target="_blank" rel="noopener">
+          <img src="gla-16th-conference-banner-v2.jpg" width="1920" height="640" alt="带项目组官方二维码的大会横幅">
+        </a>
+        <div class="body">
+          <h3>项目组官方二维码横幅</h3>
+          <div class="variant" data-width="600" data-height="200" data-alt="The 16th GLA Global Logistics Conference — Official project team QR code">
+            <p>1920 × 640 · 发邮件前请先测试扫码</p>
+            <div class="actions">
+              <a href="gla-16th-conference-banner-v2.jpg" target="_blank" rel="noopener">打开图片</a>
+              <button type="button" data-copy="url">复制直链</button>
+              <button type="button" data-copy="html">复制 HTML</button>
+            </div>
+          </div>
+        </div>
+      </article>
     </div>
-
-    <footer>GLA Global Logistics Alliance · Member Communications · <a href="https://www.glafamily.com">www.glafamily.com</a></footer>
-  </main>
-
+  </section>
+  <section class="secondary" aria-labelledby="other-assets">
+    <h2 id="other-assets">其他素材</h2>
+    <div class="grid">
+      <article id="gla-irene">
+        <a class="preview" href="gla-16th-conference-irene-1600.jpg" target="_blank" rel="noopener">
+          <img src="gla-16th-conference-irene-1600.jpg" width="1600" height="2400" loading="lazy" alt="GLA Irene">
+        </a>
+        <div class="body">
+          <h3>GLA Irene</h3>
+          <div class="variant" data-width="600" data-height="900" data-alt="GLA Irene">
+            <p>高清版 · 4664 × 6996</p>
+            <div class="actions">
+              <a href="gla-16th-conference-irene.jpg" target="_blank" rel="noopener">打开图片</a>
+              <button type="button" data-copy="url">复制直链</button>
+              <button type="button" data-copy="html">复制 HTML</button>
+            </div>
+          </div>
+          <div class="variant" data-width="600" data-height="900" data-alt="GLA Irene">
+            <p>轻量版 · 1600 × 2400</p>
+            <div class="actions">
+              <a href="gla-16th-conference-irene-1600.jpg" target="_blank" rel="noopener">打开图片</a>
+              <button type="button" data-copy="url">复制直链</button>
+              <button type="button" data-copy="html">复制 HTML</button>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article>
+        <a class="preview" href="gla-logo.png" target="_blank" rel="noopener">
+          <img class="logo" src="gla-logo.png" width="4800" height="1676" loading="lazy" alt="GLA Global Logistics Alliance">
+        </a>
+        <div class="body">
+          <h3>GLA Logo</h3>
+          <div class="variant" data-width="240" data-height="84" data-alt="GLA Global Logistics Alliance">
+            <p>英文版 · 透明底 PNG</p>
+            <div class="actions">
+              <a href="gla-logo.png" target="_blank" rel="noopener">打开图片</a>
+              <button type="button" data-copy="url">复制直链</button>
+              <button type="button" data-copy="html">复制 HTML</button>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+<p id="copy-status" role="status"></p>
 <script>
-(function () {
-  var base = new URL('.', window.location.href).href;
-  var alt = 'The 16th GLA Global Logistics Conference | 6-9 May 2027 | Shenzhen, China';
-  var banner = function (url) {
-    return '<img src="' + url + '" width="600" height="200" alt="' + alt + '"\n' +
-           '     style="display:block;width:100%;max-width:600px;height:auto;border:0;" />';
-  };
-  var portrait = function (url) {
-    return '<img src="' + url + '" width="600" height="900" alt="GLA Irene"\n' +
-           '     style="display:block;width:100%;max-width:600px;height:auto;border:0;" />';
-  };
+  const status = document.querySelector('#copy-status');
+  let statusTimer;
+  document.querySelector('main').addEventListener('click', async (event) => {
+    const button = event.target.closest('button[data-copy]');
+    if (!button) return;
 
-  var hi = base + 'gla-16th-conference-banner.jpg';
-  var sm = base + 'gla-16th-conference-banner-1600.jpg';
-  var v2 = base + 'gla-16th-conference-banner-v2.jpg';
-  var ireneHi = base + 'gla-16th-conference-irene.jpg';
-  var ireneSm = base + 'gla-16th-conference-irene-1600.jpg';
-
-  document.getElementById('url-hi').value = hi;
-  document.getElementById('url-sm').value = sm;
-  document.getElementById('url-v2').value = v2;
-  document.getElementById('url-irene-hi').value = ireneHi;
-  document.getElementById('url-irene-sm').value = ireneSm;
-  document.getElementById('html-hi').value = banner(hi);
-  document.getElementById('html-sm').value = banner(sm);
-  document.getElementById('html-v2').value = banner(v2);
-  document.getElementById('html-irene-hi').value = portrait(ireneHi);
-  document.getElementById('html-irene-sm').value = portrait(ireneSm);
-
-  document.querySelectorAll('button[data-copy]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var el = document.getElementById(btn.getAttribute('data-copy'));
-      var done = function () {
-        var old = btn.textContent;
-        btn.textContent = '已复制';
-        btn.classList.add('done');
-        setTimeout(function () { btn.textContent = old; btn.classList.remove('done'); }, 1600);
-      };
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(el.value).then(done, function () { fallback(el, done); });
-      } else { fallback(el, done); }
-    });
-  });
-  function fallback(el, done) {
-    el.classList.remove('visually-hidden');
-    el.focus(); el.select();
-    try { document.execCommand('copy'); done(); } catch (e) { /* ignore */ }
-    if (el.tagName === 'TEXTAREA' && el.classList.contains('visually-hidden') === false && el.id.indexOf('html-') === 0) {
-      el.classList.add('visually-hidden');
+    const variant = button.closest('.variant');
+    const url = variant.querySelector('a').href;
+    const {width, height, alt} = variant.dataset;
+    const isHtml = button.dataset.copy === 'html';
+    const text = isHtml
+      ? `<img src="${url}" width="${width}" height="${height}" alt="${alt}" style="display:block;width:100%;max-width:${width}px;height:auto;border:0;">`
+      : url;
+    try {
+      await navigator.clipboard.writeText(text);
+      status.textContent = isHtml ? '已复制 HTML' : '已复制直链';
+    } catch {
+      window.prompt('请手动复制', text);
+      return;
     }
-  }
-})();
+    clearTimeout(statusTimer);
+    statusTimer = setTimeout(() => { status.textContent = ''; }, 2200);
+  });
 </script>
 </body>
 </html>
